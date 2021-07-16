@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AppUserService } from '../app.service';
 
 @Component({
   selector: 'register',
@@ -15,10 +18,13 @@ export class AppRegisterComponent {
   faTimes = faTimesCircle;
   confirmPassword: string = "";
 
-  constructor() {
+  constructor(private userService: AppUserService, private toast: HotToastService, private router: Router) {
     this.registrationForm = new FormGroup({
       email: new FormControl("", [Validators.email, Validators.required]),
-      password: new FormControl("", [Validators.required, Validators.minLength(8)])
+      password: new FormControl("", [Validators.required, Validators.minLength(8)]),
+      avatar: new FormControl(""),
+      firstname: new FormControl("", [Validators.required]),
+      lastname: new FormControl("")
     });
   }
 
@@ -32,13 +38,22 @@ export class AppRegisterComponent {
   userRegister(formData: FormGroup) {
     this.isFormSubmit = true;
     if (formData.status === "VALID") {
-      alert('Registration success');
-    } else {
 
-    }
-    
-    setTimeout(() => {
+      this.userService.registerUser(formData.value).pipe(this.toast.observe({
+        loading: 'Registering your account...',
+        success: 'You have been registered successfully. Please check your email for a verification link.',
+        error: 'We were unable to register your account',
+      })).subscribe((response: any) => {
+        if (response)
+          this.router.navigate(['login']);
+        else {
+          this.toast.error("Data entered in the form is invalid");
+          this.isFormSubmit = false;
+        }
+      });
+    } else {
+      this.toast.error("Data entered in the form is invalid");
       this.isFormSubmit = false;
-    }, 5000);
+    }
   }
 }

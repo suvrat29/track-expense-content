@@ -13,7 +13,15 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/app.forgot-password.module').then(m => m.AppForgotPasswordModule)
-  }  
+  },
+  // {
+  //   path: '404',
+  //   component:
+  // },
+  {
+    path: '**',
+    redirectTo: '404'
+  }
 ];
 
 @NgModule({

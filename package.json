@@ -23,6 +23,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@ngneat/hot-toast": "^3.3.0",
+    "@ngneat/overview": "^2.0.2",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
     "rxjs": "~6.6.0",
