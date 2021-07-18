@@ -14,6 +14,7 @@ import { AppUserService } from '../app.service';
 export class AppRegisterComponent {
   isFormSubmit: boolean = false;
   passwordMatch: boolean = false;
+  isRegistrationCompleted: boolean = false;
   registrationForm: FormGroup;
   faTimes = faTimesCircle;
   confirmPassword: string = "";
@@ -30,26 +31,27 @@ export class AppRegisterComponent {
 
   matchPassword() {
     if (this.registrationForm.controls["password"].value === this.confirmPassword)
-        this.passwordMatch = true;
+      this.passwordMatch = true;
     else
-        this.passwordMatch = false;
+      this.passwordMatch = false;
   }
 
   userRegister(formData: FormGroup) {
     this.isFormSubmit = true;
     if (formData.status === "VALID") {
-
       this.userService.registerUser(formData.value).pipe(this.toast.observe({
         loading: 'Registering your account...',
-        success: 'You have been registered successfully. Please check your email for a verification link.',
+        success: 'You have been registered successfully',
         error: 'We were unable to register your account',
       })).subscribe((response: any) => {
         if (response)
-          this.router.navigate(['login']);
+          this.isRegistrationCompleted = true;
         else {
           this.toast.error("Data entered in the form is invalid");
           this.isFormSubmit = false;
         }
+      }, error => {
+        this.isFormSubmit = false;
       });
     } else {
       this.toast.error("Data entered in the form is invalid");

@@ -1,0 +1,37 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 subpixel-antialiased" *ngIf="verificationSuccess == 0">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Verifying your account, please wait...
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 subpixel-antialiased" *ngIf="verificationSuccess == 1">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Congratulations, your account is successfully verified with us. Please click the link below to login and begin using our services.
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500" [routerLink]="['../login']">
+          Log in
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 subpixel-antialiased" *ngIf="verificationSuccess == 2">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        There was some error when verifying your account, please try again later.
+      </h2>
+    </div>
+  </div>
+</div>

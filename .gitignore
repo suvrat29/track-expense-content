@@ -46,3 +46,4 @@ Thumbs.db
 *.sqlite
 *.config
 *.suo
+/.vs/VSWorkspaceState.json

@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/app.forgot-password.module').then(m => m.AppForgotPasswordModule)
   },
+  {
+    path: 'email-verified',
+    loadChildren: () => import('./email-verified/app.email-verified.module').then(m => m.AppEmailVerifiedModule)
+  },
   // {
   //   path: '404',
   //   component:

@@ -1,5 +1,5 @@
 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 subpixel-antialiased">
-  <div class="max-w-md w-full space-y-8">
+  <div class="max-w-md w-full space-y-8" *ngIf="!isRegistrationCompleted">
     <div>
       <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -76,6 +76,21 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <div class="max-w-md w-full space-y-8" *ngIf="isRegistrationCompleted">
+    <div>
+      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        You're all set! Before using, you will have to verify your account. Please check your email from us for a link to verify your account.
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Go to
+        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500" [routerLink]="['../login']">
+          Log in
+        </a>
+      </p>
     </div>
   </div>
 </div>
