@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'email-verified',
     loadChildren: () => import('./email-verified/app.email-verified.module').then(m => m.AppEmailVerifiedModule)
   },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/app.reset-password.module').then(m => m.AppResetPasswordModule)
+  },
   // {
   //   path: '404',
   //   component:
