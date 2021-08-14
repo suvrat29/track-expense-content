@@ -47,3 +47,4 @@ Thumbs.db
 *.config
 *.suo
 /.vs/VSWorkspaceState.json
+/.vs/ProjectSettings.json
