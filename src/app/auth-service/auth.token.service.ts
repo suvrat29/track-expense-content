@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment";
 
-const ACCESS_TOKEN = environment.accessToken;
+const ACCESS_TOKEN = process.env.APP_ACCESSTOKEN!;
 
 @Injectable({ providedIn: 'root' })
 
