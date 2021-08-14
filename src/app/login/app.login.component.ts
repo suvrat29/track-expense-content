@@ -34,7 +34,7 @@ export class AppLoginComponent {
         error: 'Invalid username/password',
       })).subscribe((response: any) => {
         this.tokenService.saveToken(response);
-        this.isUserSigningIn = false;
+        window.location.href = "../content/";
       }, error => {
         this.isUserSigningIn = false;
       });
